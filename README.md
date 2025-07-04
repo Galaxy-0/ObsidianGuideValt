@@ -1,0 +1,2 @@
+# ObsidianGuideValt
+obsidian新手指导仓库，内嵌在obsidian用于接入大模型进行rag查询进行QA。
