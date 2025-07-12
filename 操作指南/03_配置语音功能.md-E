@@ -1,0 +1,74 @@
+# 配置语音功能
+
+## Q：如何配置语音识别（ASR）功能？
+
+**A**：按以下步骤配置ASR语音识别：
+
+### 步骤1：安装语音服务包
+1. 打开AI学习助手启动器
+2. 在工具箱界面点击"安装"按钮
+3. 选择AI-Learning-Assistant-V1.2.0-Voice-v1.1.tar文件
+4. 等待安装完成（约10分钟）
+
+### 步骤2：启动ASR服务
+1. 点击"语音转文字"模块的"启动"按钮
+2. 在设置页面查看启动日志
+3. 看到"Uvicorn running on http://0.0.0.0:9000"表示成功
+
+### 步骤3：配置Copilot插件
+1. 进入Copilot插件设置的ASR标签页
+2. Service Type选择"Local Service"
+3. 端口设置为9000
+4. 开启"Encode Audio"和"VAD Filter"选项
+
+## Q：如何配置文字转语音（TTS）功能？
+
+**A**：按以下步骤配置TTS文字转语音：
+
+### 步骤1：启动TTS服务
+1. 在启动器工具箱点击"文字转语音"的"启动"按钮
+2. 查看设置页面的启动日志
+3. 看到"Uvicorn running on http://0.0.0.0:8000"表示成功
+
+### 步骤2：配置Aloud插件
+1. 进入Obsidian设置-第三方插件-Aloud
+2. Model Provider选择"OpenAI Compatible(Advanced)"
+3. API URL填写：http://localhost:8000
+4. Model选择：
+   - kokoro（CPU/GPU通用，速度快）
+   - index-tts（GPU优化，音质高，支持音色克隆）
+
+### 步骤3：测试语音功能
+1. 选中任意文本
+2. 右键选择"Aloud: read text out loud"
+3. 应该能听到语音播放
+
+## Q：如何配置音色克隆？
+
+**A**：仅index-tts模型支持音色克隆：
+
+1. 在启动器工具箱点击"添加语音"
+2. 选择7-20秒的干净语音文件（WAV格式）
+3. 填写音色配置：
+   - 音色名称
+   - 语音对应文本（音频中说的内容）
+   - 语言选择"Chinese"
+4. 点击"保存音色配置"
+5. 重启TTS服务生效
+
+## Q：如何使用语音功能？
+
+**A**：
+### ASR语音识别使用
+- **录音转文字**：右键选择"Open recording controls"
+- **音视频转文字**：右键音视频文件选择"🎧Transcribe"
+- **语音输入**：在Copilot对话框点击voice按钮
+
+### TTS文字转语音使用
+- **朗读文本**：选中文本右键"Aloud: read text out loud"
+- **导出音频**：选中文本右键"Aloud: Export selection to audio"
+- **自动播放**：开启Copilot的"自动语音播放"功能
+
+## 相关文档
+- [[03_AI对话功能配置]] - AI功能配置总览
+- [[04_常见问题解答]] - 语音功能故障排除
